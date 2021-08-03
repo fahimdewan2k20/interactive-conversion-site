@@ -16,4 +16,10 @@
     $records = $sql->get_result();
     return $records;
   }
+  function update($id, $rate) {
+    $conn = connect();
+    $sql = $conn->prepare("UPDATE conversion_rate SET rate=? WHERE id=?");
+    $sql->bind_param("ii", $rate, $id);
+    return $sql->execute();
+  }
 ?>
