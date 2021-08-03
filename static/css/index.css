@@ -66,3 +66,9 @@ select {
   justify-content: center;
   margin-bottom: 5px;
 }
+.error {
+  background: #ff7979;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+}

@@ -17,6 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const id = document.querySelector("#select").value;
     const value = document.querySelector("#input").value;
 
+    if (value === '') {
+      document.querySelector("#errMsg").removeAttribute('hidden');
+      return false;
+    }
+    else {
+      document.querySelector("#errMsg").setAttribute('hidden', true);
+    }
+
     request.open("GET", `./../php/home.php?id=${id}`, true);
     request.onload = () => {
       console.log(request.responseText);
@@ -25,5 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector("#output").value = parseInt(data.rate)*value;
     };
     request.send();
+    return false;
   }
 })
